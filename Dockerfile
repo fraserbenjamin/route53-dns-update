@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:18 as build
+FROM node:18 AS build
 WORKDIR /build
 COPY package.json ./
 COPY package-lock.json ./
@@ -8,7 +8,7 @@ RUN ls -a
 RUN npm install
 RUN npm run build
 
-FROM --platform=linux/amd64 node:18-alpine
+FROM node:18-alpine
 WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
