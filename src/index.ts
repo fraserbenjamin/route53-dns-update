@@ -86,9 +86,9 @@ const loop = (): void => {
   checkForUpdate().catch((error) => console.error(error));
 }
 
-if (!hostedZoneId) throw new Error("Environment variable HOSTED_ZONE_ID not set")
+if (!hostedZoneId) throw new Error("Environment variable AWS_HOSTED_ZONE_ID not set")
 if (!updateInterval) throw new Error("Environment variable UPDATE_INTERVAL not set")
-if (!domainName) throw new Error("Environment variable DOMAIN_NAME not set");
+if (!domainName) throw new Error("Environment variable AWS_RECORD_SET_NAME not set");
 
 console.log("Starting Route53 Updater");
 setInterval(() => loop(), updateInterval);
